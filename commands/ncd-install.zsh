@@ -15,6 +15,10 @@ ncd-install () {
         if [ ! -d "$PLUGINS_DIR/zsh-completions" ]; then
                 git clone --depth=1 https://github.com/zsh-users/zsh-completions.git $PLUGINS_DIR/zsh-completions
         fi
+
+        if [ ! -d "$PLUGINS_DIR/zsh-history-substring-search" ]; then
+                git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search.git $PLUGINS_DIR/zsh-history-substring-search
+        fi
 }
 
 ncd-update () {
