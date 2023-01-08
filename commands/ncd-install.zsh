@@ -1,6 +1,18 @@
 ncd-install () {
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $PLUGINS_DIR/powerlevel10k
-        git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $PLUGINS_DIR/zsh-syntax-highlighting
-        git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $PLUGINS_DIR/zsh-autosuggestions
-        git clone --depth=1 https://github.com/zsh-users/zsh-completions.git $PLUGINS_DIR/zsh-completions
+
+        if [ ! -d "$PLUGINS_DIR/powerlevel10k" ]; then
+                git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $PLUGINS_DIR/powerlevel10k
+        fi
+
+        if [ ! -d "$PLUGINS_DIR/zsh-syntax-highlighting" ]; then
+                git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting.git $PLUGINS_DIR/zsh-syntax-highlighting
+        fi
+
+        if [ ! -d "$PLUGINS_DIR/zsh-autosuggestions" ]; then
+                git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions $PLUGINS_DIR/zsh-autosuggestions
+        fi
+
+        if [ ! -d "$PLUGINS_DIR/zsh-completions" ]; then
+                git clone --depth=1 https://github.com/zsh-users/zsh-completions.git $PLUGINS_DIR/zsh-completions
+        fi
 }

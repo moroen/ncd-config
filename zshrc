@@ -14,6 +14,7 @@ PLUGINS_DIR="$CONFIG_DIR/plugins"
 
 # Commands
 source "$CONFIG_DIR/commands/ncd-install.zsh"
+ncd-install
 
 # File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
@@ -21,22 +22,24 @@ eval "$(dircolors -b)"
 alias ls='ls $LS_OPTIONS'
 
 # Completions
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" 
-
-fpath=($PLUGINS_DIR/zsh-completions/src $fpath)
-autoload -U compinit colors zcalc
-compinit -d
-colors
+source "$CONFIG_DIR/config/completion.zsh"
 
 # History
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
 setopt appendhistory                                            # Immediately append history instead of overwriting
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt autocd                                                   # if only directory path is entered, cd there.
 setopt inc_append_history                                       # save commands are added to the history immediately, otherwise only when shell exits.
 setopt histignorespace                                          # Don't save commands that start with space
 
-# Highlighter
+# Direnv
+if (( $+commands[direnv] )); then
+    eval "$(direnv hook zsh)"
+else
+    echo "direnv not installed"
+fi
 
 # powerlevel10k
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
@@ -60,4 +63,3 @@ source "$PLUGINS_DIR/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
-
