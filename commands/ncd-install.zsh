@@ -16,3 +16,11 @@ ncd-install () {
                 git clone --depth=1 https://github.com/zsh-users/zsh-completions.git $PLUGINS_DIR/zsh-completions
         fi
 }
+
+ncd-update () {
+        for d in $PLUGINS_DIR/*/ ; do
+                echo "$d"
+                cd "$d"
+                git pull
+        done
+}
