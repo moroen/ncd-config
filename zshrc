@@ -18,8 +18,13 @@ ncd-install
 
 # File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
-eval "$(dircolors -b)"
+if (( $+commands[dircolors] )); then
+    eval "$(dircolors -b)"
+fi
 alias ls='ls $LS_OPTIONS'
+
+# Alias
+source "$CONFIG_DIR/config/alias.zsh"
 
 # Completions
 source "$CONFIG_DIR/config/completion.zsh"
