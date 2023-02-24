@@ -20,5 +20,5 @@ if (( $+commands[codium] )); then
 fi
 
 if command -v ~/.pyenv/bin/pyenv &> /dev/null; then
-  alias pyenv=~/.pyenv/bin/pyenv
+  export PATH=$PATH:~/.pyenv/bin
 fi
