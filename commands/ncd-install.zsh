@@ -20,13 +20,11 @@ ncd-install () {
                 git clone --depth=1 https://github.com/zsh-users/zsh-history-substring-search.git $PLUGINS_DIR/zsh-history-substring-search
         fi
 
-        if [ ! -d "~/.pyenv/bin/pyenv" ]; then
+        if [ ! -d "$HOME/.pyenv" ]; then
                 git clone https://github.com/pyenv/pyenv.git ~/.pyenv
         fi
 }
 
-
-~/.pyenv/bin/pyenv
 ncd-update () {
         for d in $PLUGINS_DIR/*/ ; do
                 echo "$d"
