@@ -71,3 +71,7 @@ bindkey '^[[B' history-substring-search-down
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
+
+if [ -f "/usr/share/nvm/init-nvm.sh" ]; then
+    source /usr/share/nvm/init-nvm.sh
+fi

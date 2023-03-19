@@ -19,6 +19,10 @@ if (( $+commands[codium] )); then
   alias code="codium"
 fi
 
+if (( $+commands[nano] )); then
+  alias pico="nano"
+fi
+
 if command -v ~/.pyenv/bin/pyenv &> /dev/null; then
   export PATH=$PATH:~/.pyenv/bin
 fi
