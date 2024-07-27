@@ -1,3 +1,8 @@
+# Include homebrew
+if command -v /opt/homebrew/bin/brew &> /dev/null; then
+  export PATH=$PATH:/opt/homebrew/bin
+fi
+
 # Alias
 if (( $+commands[lsd] )); then
   alias ls="lsd --icon=never --group-directories-first"
@@ -26,3 +31,4 @@ fi
 if command -v ~/.pyenv/bin/pyenv &> /dev/null; then
   export PATH=$PATH:~/.pyenv/bin
 fi
+
